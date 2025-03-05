@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <title>Villain's Hero Database</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="grid-background"></div>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1 class="neon-text">VILLAIN'S HERO DATABASE</h1>
+                <p class="subtitle">Know your enemies...</p>
+            </div>
+            <div class="hero-images">
+                <img src="Flash-PNG.png" alt="Flash" class="floating-hero" id="hero1">
+                <img src="Batman-PNG.png" alt="Batman" class="floating-hero" id="hero2">
+                <img src="Superman-PNG.png" alt="Superman" class="floating-hero" id="hero3">
+                <img src="Superhero-PNG.png" alt="Alien-X" class="floating-hero" id="hero4">
+                <img src="Hulk-PNG.png" alt="Hulk" class="floating-hero" id="hero5">
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="search-container">
+                <input type="search" id="search" placeholder="Search heroes...">
+                <div class="search-icon"></div>
+            </div>
+            <div class="page-size">
+                <label for="itemsPerPage">Heroes per page:</label>
+                <select id="itemsPerPage">
+                    <option value="10">10</option>
+                    <option value="20" selected>20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="heroTable">
+                <thead id="sorte">
+                    <tr>
+                        <th rowspan="2">Icon</th>
+                        <th rowspan="2"><button id="Name">Name</button></th>
+                        <th rowspan="2"><button id="FullName">Full Name</button></th>
+                        <th colspan="6">Powerstats</th>
+                        <th rowspan="2"><button id="Race">Race</button></th>
+                        <th rowspan="2"><button id="Gender">Gender</button></th>
+                        <th rowspan="2"><button id="Height">Height</button></th>
+                        <th rowspan="2"><button id="Weight">Weight</button></th>
+                        <th rowspan="2"><button id="PlaceOfBirth">Place of Birth</button></th>
+                        <th rowspan="2"><button id="Alignment">Alignment</button></th>
+                    </tr>
+                    <tr>
+                        <th><button id="Intelligence">Intelligence</button></th>
+                        <th><button id="Strength">Strength</button></th>
+                        <th><button id="Speed">Speed</button></th>
+                        <th><button id="Durability">Durability</button></th>
+                        <th><button id="Power">Power</button></th>
+                        <th><button id="Combat">Combat</button></th>
+                    </tr>
+                </thead>
+                <tbody id="heroTableBody"></tbody>
+            </table>
+        </div>
+
+        <div id="pages" class="pagination">
+           
+        </div>
+
+        <div id="hero-detail" class="hero-detail">
+            <div class="detail-content">
+                <button class="close-button">&times;</button>
+                <div class="detail-header">
+                    <img id="detail-image" src="/placeholder.svg" alt="Hero">
+                    <div class="detail-name">
+                        <h2 id="detail-hero-name"></h2>
+                        <h3 id="detail-full-name"></h3>
+                    </div>
+                </div>
+                <div class="detail-stats">
+                    <div class="stats-container">
+                        <h4>Powerstats</h4>
+                        <div class="stat-bars">
+                            <div class="stat-item">
+                                <span>Intelligence</span>
+                                <div class="stat-bar-container">
+                                    <div id="stat-intelligence" class="stat-bar"></div>
+                                    <span class="stat-value" id="value-intelligence"></span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <span>Strength</span>
+                                <div class="stat-bar-container">
+                                    <div id="stat-strength" class="stat-bar"></div>
+                                    <span class="stat-value" id="value-strength"></span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <span>Speed</span>
+                                <div class="stat-bar-container">
+                                    <div id="stat-speed" class="stat-bar"></div>
+                                    <span class="stat-value" id="value-speed"></span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <span>Durability</span>
+                                <div class="stat-bar-container">
+                                    <div id="stat-durability" class="stat-bar"></div>
+                                    <span class="stat-value" id="value-durability"></span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <span>Power</span>
+                                <div class="stat-bar-container">
+                                    <div id="stat-power" class="stat-bar"></div>
+                                    <span class="stat-value" id="value-power"></span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <span>Combat</span>
+                                <div class="stat-bar-container">
+                                    <div id="stat-combat" class="stat-bar"></div>
+                                    <span class="stat-value" id="value-combat"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appearance-container">
+                        <h4>Appearance</h4>
+                        <div class="detail-info">
+                            <p><strong>Race:</strong> <span id="detail-race"></span></p>
+                            <p><strong>Gender:</strong> <span id="detail-gender"></span></p>
+                            <p><strong>Height:</strong> <span id="detail-height"></span></p>
+                            <p><strong>Weight:</strong> <span id="detail-weight"></span></p>
+                            <p><strong>Eye Color:</strong> <span id="detail-eye-color"></span></p>
+                            <p><strong>Hair Color:</strong> <span id="detail-hair-color"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-biography">
+                    <h4>Biography</h4>
+                    <div class="detail-info">
+                        <p><strong>Place of Birth:</strong> <span id="detail-place-of-birth"></span></p>
+                        <p><strong>Alignment:</strong> <span id="detail-alignment"></span></p>
+                        <p><strong>Publisher:</strong> <span id="detail-publisher"></span></p>
+                        <p><strong>First Appearance:</strong> <span id="detail-first-appearance"></span></p>
+                        <p><strong>Alter Egos:</strong> <span id="detail-alter-egos"></span></p>
+                        <p><strong>Aliases:</strong> <span id="detail-aliases"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
